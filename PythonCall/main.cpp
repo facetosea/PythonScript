@@ -31,7 +31,7 @@ printf("pName has get!");
 pModule = PyImport_Import(pName);
 if ( !pModule )
 {
-printf("can't find pytest.py  ~~~~ mark\n");
+  printf("can't find pytest.py  ~~~~ mark\n");
 return -1;
 }
 pDict = PyModule_GetDict(pModule);
