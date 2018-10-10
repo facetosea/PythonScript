@@ -57,7 +57,14 @@ int main(int argc, char** argv)
     PyTuple_SetItem(pArgs, 0, Py_BuildValue("l", 3));
     PyTuple_SetItem(pArgs, 1, Py_BuildValue("l", 4));
     // // 调用Python函数
-    PyObject_CallObject(pFunc, pArgs);
+    PyObject *pyValue =  PyEval_CallObject(pFunc, pArgs);////PyObject_CallObject(pFunc, pArgs);
+	int r1 = 0;
+	PyArg_Parse(pyValue, "i", &r1);
+	//PyArg_ParseTuple(pyValue,"i",&r1);//分析返回的元组值
+	if(pyValue)
+	{
+			printf("result: %d \n",r1);
+	}
     Py_DECREF(pName);
     Py_DECREF(pArgs);
     Py_DECREF(pModule);
