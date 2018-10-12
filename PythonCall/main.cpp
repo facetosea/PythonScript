@@ -65,6 +65,7 @@ int main(int argc, char** argv)
 	{
 			printf("result: %d \n",r1);
 	}
+	Py_DECREF(pyValue);
     Py_DECREF(pName);
     Py_DECREF(pArgs);
     Py_DECREF(pModule);
